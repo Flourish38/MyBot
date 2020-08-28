@@ -16,7 +16,7 @@ public class NicknameCommand extends ParameterCommand {
     @Override
     void command(@NotNull GuildMessageReceivedEvent event, List<String> params) {
         if(params.size() < 1){
-            event.getChannel().sendMessage("Usage: !nick <User> <Nickname...>").queue();
+            event.getChannel().sendMessage("Usage: !nick <User> (Nickname...)").queue();
             return;
         }
         String userId = params.get(0);

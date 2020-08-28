@@ -32,7 +32,9 @@ public class Bot {
                         new ReadyTimer(),
                         new PingCommand(),
                         new ShutdownCommand(),
-                        new NicknameCommand()
+                        new NicknameCommand(),
+                        new GetPositionCommand(),
+                        new RenameChannelCommand()
                 ).build();
     }
 }

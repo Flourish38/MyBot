@@ -5,16 +5,17 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class MakeChannelCommand extends ParameterCommand {
-    public MakeChannelCommand() {
-        super("makechannel", "createchannel", "newchannel");
+public class RenameChannelCommand extends ParameterCommand {
+    public RenameChannelCommand() {
+        super("renamechannel");
     }
 
     @Override
     void command(@NotNull GuildMessageReceivedEvent event, List<String> params) {
         if(params.size() < 1){
-            event.getChannel().sendMessage("Usage: !makechannel <name> (category) (position)").queue();
+            event.getChannel().sendMessage("Usage: !renamechannel <name>").queue();
             return;
         }
+        event.getChannel().getManager().setName(String.join("-", params)).queue();
     }
 }
