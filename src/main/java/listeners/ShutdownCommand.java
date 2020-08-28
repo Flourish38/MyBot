@@ -3,7 +3,7 @@ package listeners;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import org.jetbrains.annotations.NotNull;
 
-public class ShutdownCommand extends CommandListener {
+public class ShutdownCommand extends Command {
     public ShutdownCommand(){
         super("shutdown");
     }

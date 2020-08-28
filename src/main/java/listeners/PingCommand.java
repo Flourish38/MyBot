@@ -3,9 +3,7 @@ package listeners;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import org.jetbrains.annotations.NotNull;
 
-import java.time.Duration;
-
-public class PingCommand extends CommandListener{
+public class PingCommand extends Command {
     public PingCommand(){
         super("ping");
     }

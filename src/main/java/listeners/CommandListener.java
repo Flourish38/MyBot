@@ -10,6 +10,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * This class is not meant to be used to make commands, it is meant to be used to make more command interfaces.
+ * This literally only exists so I could make parameter commands with aliases. That is all.
+ */
 public abstract class CommandListener extends ListenerAdapter {
     protected final List<String> commands;
 
@@ -30,12 +34,11 @@ public abstract class CommandListener extends ListenerAdapter {
             if((raw.startsWith(mention + " " + command)) // ping as prefix
                     || raw.startsWith(BotConfig.PREFIX + command)) // msg starts with prefix
             {
-                command(event);
+                command(event, command);
                 break;
             }
         }
     }
 
-    abstract void command(@Nonnull GuildMessageReceivedEvent event);
-
+    abstract void command(@Nonnull GuildMessageReceivedEvent event, String command);
 }
