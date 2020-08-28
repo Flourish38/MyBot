@@ -1,9 +1,6 @@
 import listeners.*;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.events.ReadyEvent;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.jetbrains.annotations.NotNull;
 
 import javax.security.auth.login.LoginException;
 import java.io.File;
@@ -17,6 +14,11 @@ public class Bot {
         if(!file.exists()){
             System.out.println("A new file \"token.txt\" has been created. Put the OAuth token of the bot in that file.");
             System.out.println(file.createNewFile());
+            return;
+        }
+        Scanner scanner = new Scanner(file);
+        if(!scanner.hasNext()){
+            System.out.println("Put the OAuth token of the bot into \"token.txt\"");
             return;
         }
         JDA jda = JDABuilder.createDefault(new Scanner(file).nextLine())
