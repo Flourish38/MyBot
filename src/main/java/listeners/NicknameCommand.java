@@ -16,7 +16,7 @@ public class NicknameCommand extends ParameterCommand {
     @Override
     void command(@NotNull GuildMessageReceivedEvent event, List<String> params) {
         if(params.size() < 1){
-            event.getChannel().sendMessage("Usage: !nick <User> (Nickname...)").queue();
+            event.getChannel().sendMessage("Usage: !nick <user> (nickname...)").queue();
             return;
         }
         String userId = params.get(0);
@@ -33,12 +33,12 @@ public class NicknameCommand extends ParameterCommand {
         }
         StringBuilder nick = new StringBuilder();
         for(int i = 1; i < params.size(); i++){
-            nick.append(params.get(i));
+            nick.append(params.get(i)).append(' ');
         }
         if(member.isOwner()){
-            event.getChannel().sendMessage(member.getAsMention() + ": Change nick to \"" + nick.toString() + "\"").queue();
+            event.getChannel().sendMessage(member.getAsMention() + ": Change nick to \"" + nick.toString().strip() + "\"").queue();
             return;
         }
-        member.modifyNickname(nick.toString()).queue();
+        member.modifyNickname(nick.toString().strip()).queue();
     }
 }
