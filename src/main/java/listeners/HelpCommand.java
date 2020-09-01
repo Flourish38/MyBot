@@ -11,10 +11,7 @@ public class HelpCommand extends Command {
     @Override
     void command(@NotNull GuildMessageReceivedEvent event) {
         event.getChannel().sendMessage("List of commands:" +
-                "\n!getpos" +
-                "\n!makechannel" +
-                "\n!movechannel" +
-                "\n!nick" +
+                "\n!nickname" +
                 "\n!ping").queue();
     }
 }
