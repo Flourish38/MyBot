@@ -13,8 +13,9 @@ public class MakeChannelCommand extends ParameterCommand {
     @Override
     void command(@NotNull GuildMessageReceivedEvent event, List<String> params) {
         if(params.size() < 1){
-            event.getChannel().sendMessage("Usage: !makechannel <name> (category) (position)").queue();
+            event.getChannel().sendMessage("Usage: !makechannel <name...>").queue();
             return;
         }
+        event.getChannel().getParent().createTextChannel(String.join("-", params)).setPosition(event.getChannel().getPosition() + 1).queue();
     }
 }

@@ -14,18 +14,27 @@ public class MoveChannelCommand extends ParameterCommand{
     @Override
     void command(@NotNull GuildMessageReceivedEvent event, List<String> params) {
         if(params.size() < 1){
-            event.getChannel().sendMessage("Usage: !movechannel (category...) <position>").queue();
+            event.getChannel().sendMessage("Usage: !movechannel (category...) (position)").queue();
             return;
         }
         String posString = (params.size() < 2 ? params.get(0) : params.get(params.size() - 1));
-        if(!posString.matches("^\\d+$")) {
+        int position;
+        int adjust;
+        if(posString.matches("^\\d+$")) {
+            position = Integer.parseInt(posString);
+            adjust = 1;
+        }
+        else{
+            position = event.getChannel().getPosition();
+            adjust = 0;
+            /*
             event.getChannel().sendMessage("Invalid position \"" + posString + "\", must be an integer.").queue();
             return;
+            // */
         }
-        int position = Integer.parseInt(posString);
         if(params.size() > 1){
             StringBuilder sb = new StringBuilder(params.get(0));
-            for(int i = 1; i < params.size() - 1; i++){
+            for(int i = 1; i < params.size() - adjust; i++){
                 sb.append(" ").append(params.get(i));
             }
             List<Category> categories = event.getGuild().getCategoriesByName(sb.toString(), true);

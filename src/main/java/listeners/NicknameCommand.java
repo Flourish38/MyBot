@@ -31,14 +31,14 @@ public class NicknameCommand extends ParameterCommand {
             event.getChannel().sendMessage("No member found with ID \"" + userId + "\"").queue();
             return;
         }
-        StringBuilder nick = new StringBuilder();
-        for(int i = 1; i < params.size(); i++){
-            nick.append(params.get(i)).append(' ');
+        StringBuilder nick = new StringBuilder(params.get(1));
+        for(int i = 2; i < params.size(); i++){
+            nick.append(" ").append(params.get(i));
         }
         if(member.isOwner()){
-            event.getChannel().sendMessage(member.getAsMention() + ": Change nick to \"" + nick.toString().strip() + "\"").queue();
+            event.getChannel().sendMessage(member.getAsMention() + ": Change nick to \"" + nick.toString() + "\"").queue();
             return;
         }
-        member.modifyNickname(nick.toString().strip()).queue();
+        member.modifyNickname(nick.toString()).queue();
     }
 }

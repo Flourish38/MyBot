@@ -34,8 +34,8 @@ public class Bot {
                         new ShutdownCommand(),
                         new NicknameCommand(),
                         new GetPositionCommand(),
-                        new RenameChannelCommand(),
-                        new MoveChannelCommand()
+                        new MoveChannelCommand(),
+                        new MakeChannelCommand()
                 ).build();
     }
 }
