@@ -29,6 +29,7 @@ public class Bot {
                 .setMemberCachePolicy(MemberCachePolicy.ALL)
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(
+                        new StartupPresence(),
                         new PingCommand(),
                         new ShutdownCommand(),
                         new NicknameCommand(),
