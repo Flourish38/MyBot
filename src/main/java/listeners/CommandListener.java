@@ -28,7 +28,7 @@ public abstract class CommandListener extends ListenerAdapter {
         if (event.getAuthor().isBot()) return;
 
         var raw = event.getMessage().getContentRaw();
-        String mention = event.getJDA().getSelfUser().getAsMention();
+        String mention =  "<@!" + event.getJDA().getSelfUser().getId() + ">"; // bro I stg why did discord change how they store pings internally AAAAA JDA hasn't updated to match it so this is life igString mention = event.getJDA().getSelfUser().getAsMention();
         for(var command : commands)
         {
             if((raw.startsWith(mention + " " + command)) // ping as prefix
