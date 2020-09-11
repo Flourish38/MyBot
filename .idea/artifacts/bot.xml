@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="mybot">
-    <output-path>$PROJECT_DIR$/out/artifacts/mybot</output-path>
-    <root id="archive" name="mybot.jar">
+  <artifact type="jar" build-on-make="true" name="bot">
+    <output-path>$PROJECT_DIR$/out/artifacts/bot</output-path>
+    <root id="archive" name="bot.jar">
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
       </element>

@@ -31,9 +31,9 @@ public class Bot {
                 .addEventListeners(
                         new StartupPresence(),
                         new PingCommand(),
-                        new ShutdownCommand(),
                         new NicknameCommand(),
                         new HelpCommand()
                 ).build();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> ShutdownHandler.handle(jda)));
     }
 }
