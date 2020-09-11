@@ -30,6 +30,7 @@ public class Bot {
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(
                         new StartupPresence(),
+                        new ShutdownHandler(),
                         new PingCommand(),
                         new NicknameCommand(),
                         new HelpCommand()
